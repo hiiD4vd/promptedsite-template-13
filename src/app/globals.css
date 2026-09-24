@@ -1,0 +1,94 @@
+@import "tailwindcss";
+@import "./promptedsite-original.css";
+
+@font-face {
+  font-family: 'Inter Tight';
+  src: url('/fonts/InterTight-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-display: swap;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Courier Prime';
+  src: url('/fonts/CourierPrime-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-display: swap;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Unbounded';
+  src: url('/fonts/Unbounded-ExtraBold.woff2') format('woff2');
+  font-weight: 700;
+  font-display: swap;
+  font-style: normal;
+}
+
+:root {
+  --color-black: #262626;
+  --color-green: #afab8e;
+  --color-orange: #df6341;
+  --color-salmon: #de7e64;
+  --color-brown: #a59171;
+  --color-ivory: #f3f1e9;
+  --color-white: #f9f7f7;
+  --font-family-base: "Inter Tight", sans-serif;
+  --font-family-mono: "Courier Prime", monospace;
+  --font-family-accent: "Unbounded", sans-serif;
+}
+
+body {
+  background-color: var(--color-black);
+  color: var(--color-ivory);
+  font-family: var(--font-family-base);
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+body:before {
+  content: "";
+  position: fixed;
+  z-index: 2147483647;
+  inset: -80px;
+  background-image: url(/images/noise.svg);
+  background-repeat: repeat;
+  background-size: 80px 80px;
+  pointer-events: none;
+  will-change: transform;
+  animation: global-noise .5s steps(1,end) infinite;
+}
+
+@keyframes global-noise {
+  0%, to { transform: translateZ(0); }
+  20% { transform: translate3d(-9px, 6px, 0); }
+  40% { transform: translate3d(7px, -11px, 0); }
+  60% { transform: translate3d(12px, 8px, 0); }
+  80% { transform: translate3d(-6px, -7px, 0); }
+}
+
+.font-display {
+  font-family: 'Unbounded', sans-serif;
+}
+
+.font-mono-accent {
+  font-family: 'Courier Prime', monospace;
+}
+
+.hero__title {
+  font-family: var(--font-family-accent) !important;
+  font-size: 24px !important;
+  line-height: 1.1 !important;
+  font-weight: 800 !important;
+  letter-spacing: -0.03em !important;
+  text-transform: uppercase !important;
+}
+
+@media (min-width: 1024px) {
+  .hero__title {
+    font-size: 30px !important;
+  }
+}
+
+
